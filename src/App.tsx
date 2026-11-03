@@ -103,7 +103,6 @@ function App() {
             <div className="car-map">
               <span className="axle-label front-axle" aria-hidden="true">FRONT AXLE</span>
               <span className="axle-label rear-axle" aria-hidden="true">REAR AXLE</span>
-              <span className="car-spine" aria-hidden="true" />
               {cornerLabels.map(({ key, label, short, position }) => (
                 <label className={`wheel-input ${position}`} key={key}>
                   <span className="wheel-name"><span className="corner-code">{short}</span>{label}</span>
@@ -163,13 +162,27 @@ function App() {
               <h3>Axle balance</h3>
               <ResultRow label="Front" weight={front} percent={frontPercent} total={total} />
               <ResultRow label="Rear" weight={rear} percent={rearPercent} total={total} />
-              <div className="mini-bar"><span style={{ width: `${frontPercent}%` }} /></div>
+              <div className="mini-bar">
+                <span className="front-segment" style={{ width: `${frontPercent}%` }} />
+                <span className="rear-segment" style={{ width: `${rearPercent}%` }} />
+              </div>
+              <div className="bar-legend result-legend">
+                <span><i className="legend-front" /> Front <strong>{formatPercent(frontPercent)}</strong></span>
+                <span><i className="legend-rear" /> Rear <strong>{formatPercent(rearPercent)}</strong></span>
+              </div>
             </article>
             <article className="result-panel">
               <h3>Side balance</h3>
               <ResultRow label="Left" weight={left} percent={leftPercent} total={total} />
               <ResultRow label="Right" weight={right} percent={rightPercent} total={total} />
-              <div className="mini-bar side-bar"><span style={{ width: `${leftPercent}%` }} /></div>
+              <div className="mini-bar side-bar">
+                <span className="left-segment" style={{ width: `${leftPercent}%` }} />
+                <span className="right-segment" style={{ width: `${rightPercent}%` }} />
+              </div>
+              <div className="bar-legend result-legend">
+                <span><i className="legend-left" /> Left <strong>{formatPercent(leftPercent)}</strong></span>
+                <span><i className="legend-right" /> Right <strong>{formatPercent(rightPercent)}</strong></span>
+              </div>
             </article>
             <article className="result-panel diagonal-panel">
               <h3>Diagonal / cross-weight</h3>

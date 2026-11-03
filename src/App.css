@@ -192,31 +192,6 @@
   padding: 0 13px;
 }
 
-.car-spine {
-  position: absolute;
-  z-index: 0;
-  top: -8px;
-  bottom: -8px;
-  left: 50%;
-  width: 58px;
-  transform: translateX(-50%);
-  border: 2px solid #c8c8bd;
-  border-radius: 21px;
-  background: linear-gradient(90deg, #555b56 0 5px, #343a36 5px 25px, #151a17 25px 31px, #343a36 31px 51px, #555b56 51px);
-  box-shadow: inset 0 0 0 2px #252a27, 0 1px 3px rgba(25, 30, 26, 0.16);
-}
-
-.car-spine::before {
-  position: absolute;
-  top: 10px;
-  bottom: 10px;
-  left: 50%;
-  width: 2px;
-  transform: translateX(-50%);
-  background: repeating-linear-gradient(to bottom, #d9e95a 0 7px, transparent 7px 14px);
-  content: '';
-}
-
 .axle-label {
   position: absolute;
   z-index: 1;
@@ -425,6 +400,20 @@ input[type='number']::-webkit-outer-spin-button { margin: 0; appearance: none; }
 .mini-bar { height: 7px; margin-top: 12px; background: #e9ede5; }
 .mini-bar span { background: var(--race-red); transition: width 180ms ease; }
 .side-bar span { background: #a9bd52; }
+.mini-bar .front-segment { background: var(--race-red); }
+.mini-bar .rear-segment { background: var(--signal-yellow); }
+.mini-bar .left-segment { background: #71994e; transition: width 180ms ease; }
+.mini-bar .right-segment { background: #cbd979; transition: width 180ms ease; }
+
+.result-legend {
+  margin-top: 9px;
+  color: #788277;
+  font-size: 11px;
+}
+
+.result-legend strong { color: #344136; }
+.legend-left { background: #71994e; }
+.legend-right { background: #cbd979; }
 
 .difference-row {
   display: flex;
@@ -491,8 +480,6 @@ input[type='number']::-webkit-outer-spin-button { margin: 0; appearance: none; }
   .total-panel { padding: 21px 18px; }
   .section-heading h2 { font-size: 27px; }
   .car-map { gap: 30px 23px; margin-top: 28px; padding: 0 2px; }
-  .car-spine { width: 50px; }
-  .car-spine { background: linear-gradient(90deg, #555b56 0 4px, #343a36 4px 21px, #151a17 21px 27px, #343a36 27px 44px, #555b56 44px); }
   .wheel-name { gap: 6px; font-size: 14px; }
   .input-wrap { height: 52px; }
   .input-wrap input { padding: 0 9px; font-size: 23px; }
