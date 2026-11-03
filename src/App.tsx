@@ -21,7 +21,6 @@ function formatPercent(value: number) {
 
 function App() {
   const [weights, setWeights] = useState(exampleWeights)
-  const [guideCondition, setGuideCondition] = useState<'raised' | 'in-slot'>('raised')
   const [copied, setCopied] = useState(false)
 
   const values = Object.fromEntries(
@@ -56,7 +55,6 @@ function App() {
       `Left / right: ${formatWeight(left)} g (${formatPercent(leftPercent)}) / ${formatWeight(right)} g (${formatPercent(rightPercent)})`,
       `Diagonals FL + RR / FR + RL: ${formatWeight(diagonalA)} g / ${formatWeight(diagonalB)} g`,
       `Diagonal difference: ${formatWeight(diagonalDifference)} g (${formatPercent(diagonalPercent)} of total)`,
-      `Guide condition: ${guideCondition === 'raised' ? 'raised / not touching' : 'in slot / guide load included'}`,
     ].filter(Boolean).join('\n')
 
     try {
@@ -86,7 +84,6 @@ function App() {
           </div>
           <button className="text-button" type="button" onClick={() => {
             setWeights(exampleWeights)
-            setGuideCondition('raised')
             setCopied(false)
           }}>
             Reset example
@@ -132,30 +129,6 @@ function App() {
               </p>
             )}
 
-            <div className="measure-options">
-              <fieldset className="guide-fieldset">
-                <legend>Measurement condition</legend>
-                <div className="segmented-control">
-                  <button
-                    aria-pressed={guideCondition === 'raised'}
-                    className={guideCondition === 'raised' ? 'selected' : ''}
-                    onClick={() => setGuideCondition('raised')}
-                    type="button"
-                  >Guide raised</button>
-                  <button
-                    aria-pressed={guideCondition === 'in-slot'}
-                    className={guideCondition === 'in-slot' ? 'selected' : ''}
-                    onClick={() => setGuideCondition('in-slot')}
-                    type="button"
-                  >Guide in slot</button>
-                </div>
-              </fieldset>
-              <p className="condition-note">
-                {guideCondition === 'raised'
-                  ? 'Guide load excluded for a four-wheel reading.'
-                  : 'Guide load may affect the four-wheel balance estimate.'}
-              </p>
-            </div>
           </section>
 
           <section className="panel total-panel" aria-labelledby="total-title">
@@ -211,7 +184,7 @@ function App() {
         </section>
 
         <footer className="page-footer">
-          <p><span className="footer-mark" /> SETUP NOTES · RECORD THE GUIDE CONDITION WHEN COMPARING READINGS</p>
+          <p><span className="footer-mark" /> SLOT CAR CHASSIS SETUP · FOUR-WHEEL BALANCE</p>
           <button className="copy-button" onClick={copyReport} type="button">
             <span aria-hidden="true">{copied ? '✓' : '↗'}</span> {copied ? 'Copied' : 'Copy report'}
           </button>
