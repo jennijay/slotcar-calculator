@@ -72,13 +72,13 @@ function App() {
           <span className="brand-mark" aria-hidden="true">SC</span>
           <span>Slot setup <span className="brand-muted">/ workshop tools</span></span>
         </a>
-        <span className="status"><span className="status-dot" /> LIVE CALCULATION</span>
+        <span className="status"><span className="status-dot" /> LIVE / ON THE GRID</span>
       </header>
 
       <div className="workspace" id="top">
         <section className="page-heading">
           <div>
-            <p className="eyebrow">CHASSIS SETUP · TOOL 01</p>
+            <p className="eyebrow">PIT LANE · TOOL 01</p>
             <h1>Corner-weight calculator</h1>
             <p className="subtitle">Measure each wheel. See where the mass sits.</p>
           </div>
